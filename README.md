@@ -48,6 +48,13 @@ An end-to-end order management and billing system built in Oracle PL/SQL, modele
 | `cancel_order` | Restores stock and sets status to `CANCELLED` |
 | `batch_cancel_stale_orders` | Cancels any order still `PENDING` after 1 day |
 
+**Functions**
+
+| Function | What it does |
+|---|---|
+| `get_order_status` | Returns the current status of an order given its ID; returns NULL if the order doesn't exist |
+| `get_customer_total_spent` | Returns a customer's total spend across all CONFIRMED orders; returns 0 if none |
+
 **Triggers**
 
 | Trigger | What it does |
