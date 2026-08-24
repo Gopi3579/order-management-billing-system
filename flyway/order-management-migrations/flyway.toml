@@ -1,0 +1,91 @@
+databaseType = "Oracle"
+id = "b671415b-fc82-4430-8008-578ed4c38626"
+name = "order-management-migrations"
+
+[flyway]
+callbackLocations = [ "filesystem:callbacks" ]
+locations = [ "filesystem:migrations" ]
+mixed = true
+outOfOrder = true
+schemaModelLocation = "schema-model"
+schemaModelSchemas = [ "GOPI" ]
+validateMigrationNaming = true
+
+[flywayDesktop]
+developmentEnvironment = "development"
+shadowEnvironment = "shadow"
+showDeploymentDecision = true
+
+[redgateCompare]
+filterFile = "filter.rgf"
+
+  [redgateCompare.oracle]
+  filterFile = "Filter.scpf"
+  ignoreRulesFile = "IgnoreRules.scpf"
+
+[redgateCompare.oracle.data.options.comparison]
+checkTablesForData = false
+databaseTimeZone = ""
+ignoreControlCharacters = false
+ignoreDateTypeDifferences = false
+ignoreWhiteSpace = false
+includeSourceTables = true
+includeViews = false
+trimTrailingSpaces = false
+
+[redgateCompare.oracle.options.behavior]
+addPurgeClauseToAllTableDrops = false
+detectRenamedColumns = true
+excludeSchemaNames = false
+forceColumnOrder = false
+includeCrossSchemaPermissions = true
+includeProgramUnitRoles = false
+includeSetBlankLinesOn = false
+includeSetDefineOff = true
+includeSetDefineOffToScripter = true
+includeSystemPermissions = false
+includeUserRoles = false
+suppressDependentAlterCompile = false
+useForwardSlash = false
+
+[redgateCompare.oracle.options.ignores]
+ignoreCaseDifferencesInPlSqlBlocks = false
+ignoreCommentsInPlSqlBlocks = false
+ignoreCommentsOnTablesViewsAndColumns = false
+ignoreConstraintNames = false
+ignoreDependentObjectsInOtherSchemas = true
+ignoreDoubleQuotesInPlSqlBlocks = true
+ignoreExternalTableLocationInformation = false
+ignoreIndexNames = false
+ignoreLengthSemantics = false
+ignoreLobStorage = false
+ignoreMaterializedViewStartWithValue = true
+ignoreParallel = false
+ignorePermissions = true
+ignoreSequenceCurrentValue = true
+ignoreSlowDependencies = true
+ignoreSupplementalLogGroups = false
+ignoreSystemPartitions = false
+ignoreWhitespace = true
+
+[redgateCompare.oracle.options.storage]
+includeAllStorage = false
+includeStorageCompression = false
+includeStorageDeferredSegments = false
+includeStorageExtents = false
+includeStorageIlmPolicies = false
+includeStorageIniTrans = false
+includeStorageLobsAndVarrays = false
+includeStorageLogging = false
+includeStoragePartitioning = false
+includeStoragePctFree = false
+includeStorageTablespace = false
+
+[environments.target1]
+url = "jdbc:oracle:thin:@//localhost:1521/xepdb1"
+schemas = [ "GOPI" ]
+
+[environments.target2]
+url = "jdbc:oracle:thin:@//localhost:1521/xepdb1"
+schemas = [ "GOPI_UAT" ]
+displayName = "GOPI_UAT"
